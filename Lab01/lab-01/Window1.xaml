@@ -1,0 +1,30 @@
+﻿<Window x:Class="lab_01.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_01"
+        mc:Ignorable="d"
+        Title="Student's data" Height="480" Width="640" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" KeyUp="Window_KeyUp">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFBF7676" Offset="1"/>
+            <GradientStop Color="#FFF7C0C0" Offset="0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Button Content="Back" HorizontalAlignment="Right" Height="50" Margin="0,310,35,0" VerticalAlignment="Top" Width="200" Click="Button_Click" />
+        <TextBox Name ="Surname" HorizontalAlignment="Left" Height="20" Margin="143,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" BorderBrush="Black"/>
+        <TextBox Name ="Name" HorizontalAlignment="Left" Height="20" Margin="143,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" BorderBrush="Black"/>
+        <TextBox Name ="Father" HorizontalAlignment="Left" Height="20" Margin="143,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" BorderBrush="Black"/>
+        <TextBox Name ="N" HorizontalAlignment="Left" Height="20" Margin="143,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" BorderBrush="Black"/>
+        <Label Content="Прізвище" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Label Content="Ім'я" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Label Content="По-батькові" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Label Content="Квиток №" HorizontalAlignment="Left" Margin="10,176,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Button Name ="AButton" Content="Add" HorizontalAlignment="Left" Height="36" Margin="143,232,0,0" VerticalAlignment="Top" Width="154" IsEnabled="False" Click="AButton_Click"/>
+        <TextBox Name ="DN" HorizontalAlignment="Left" Height="20" Margin="143,335,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" BorderBrush="Black"/>
+        <Label Content="Видалення за студентським квитком" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Normal" FontFamily="Arial Black"/>
+        <Button Name ="DButton" Content="Delete" HorizontalAlignment="Left" Height="36" Margin="143,382,0,0" VerticalAlignment="Top" Width="154" IsEnabled="False" Click="Button_Click_1"/>
+    </Grid>
+</Window>
