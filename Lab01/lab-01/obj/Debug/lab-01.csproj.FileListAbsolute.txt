@@ -44,3 +44,4 @@ C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Lab01\lab-01\obj\Debug\lab-01.cspr
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Lab01\lab-01\obj\Debug\lab-01.csproj.CoreCompileInputs.cache
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Lab01\lab-01\obj\Debug\lab-01.exe
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Lab01\lab-01\obj\Debug\lab-01.pdb
+C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Lab01\lab-01\obj\Debug\lab-01.csproj.SuggestedBindingRedirects.cache

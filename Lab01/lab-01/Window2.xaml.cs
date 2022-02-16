@@ -38,7 +38,7 @@ namespace lab_01
             if (!isEndOfTheGame)
                 for(int i = 0; i<3; i++)
                     for (int j = 0; j < 5; j++)
-                         if ((net[i, j] == net[i+1, j]) && (net[1, j] == net[i+2, j]))
+                         if ((net[i, j] == net[i+1, j]) && (net[i+1, j] == net[i+2, j]))
                              winner(net[i, j], net);
 
             if (!isEndOfTheGame)
@@ -53,7 +53,6 @@ namespace lab_01
                     
 
             if (!isEndOfTheGame)
-                if ((net[0,2] == net[1,1]) && (net[1,1] == net[2, 0]))
                     for (int i = 0; i < 3; i++)
                     {
                         for (int j = 4; j >=2; j--)
