@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Check" Height="500" Width="500" ResizeMode="CanMinimize" Background="#FFDFF0C5" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Exit" HorizontalAlignment="Left" Height="46" Margin="313,396,0,0" VerticalAlignment="Top" Width="155" />
+        <Button Content="Exit" HorizontalAlignment="Left" Height="46" Margin="313,396,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click" />
 
     </Grid>
 </Window>

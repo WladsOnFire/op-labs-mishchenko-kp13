@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="Learn" Height="500" Width="500" ResizeMode="CanMinimize" Background="#FFDDB4B4" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Exit" HorizontalAlignment="Left" Height="46" Margin="313,396,0,0" VerticalAlignment="Top" Width="155" />
+        <Button Content="Exit" HorizontalAlignment="Left" Height="46" Margin="313,396,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click" />
+        <Button Name="GenerateBT" Content="Generate pass-phrase" HorizontalAlignment="Left" Height="37" Margin="39,113,0,0" VerticalAlignment="Top" Width="151" Click="GenerateBT_Click"/>
+        <TextBox Name="KeyWordTB" HorizontalAlignment="Left" Margin="237,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="37" FontSize="24" IsReadOnly="True"/>
+        <TextBox Name="LearnKeyWordTB" HorizontalAlignment="Left" Margin="237,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Height="37" FontSize="24" IsEnabled="False" KeyDown="LearnKeyWordTB_KeyDown"/>
 
     </Grid>
 </Window>
