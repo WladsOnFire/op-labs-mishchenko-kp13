@@ -8,6 +8,25 @@
         Title="Check" Height="500" Width="500" ResizeMode="CanMinimize" Background="#FFDFF0C5" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button Content="Exit" HorizontalAlignment="Left" Height="46" Margin="313,396,0,0" VerticalAlignment="Top" Width="155" Click="Button_Click" />
-
+        <TextBox Name="CheckTB"  HorizontalAlignment="Left" Height="40" Margin="187,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217" FontSize="24" KeyDown="TextBox_KeyDown"/>
+        <Label Content="Check field:" HorizontalAlignment="Left" Margin="98,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="Key Word:" HorizontalAlignment="Left" Margin="104,64,0,0" VerticalAlignment="Top"/>
+        <Label Name ="kwL" Content="" HorizontalAlignment="Left" Margin="187,57,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" FontWeight="Bold"/>
+        <ComboBox Name="AttemptsCB" HorizontalAlignment="Left" Margin="118,160,0,0" VerticalAlignment="Top" Width="50" SelectedIndex="5">
+            <TextBlock Text="5"/>
+            <TextBlock Text="6"/>
+            <TextBlock Text="7"/>
+            <TextBlock Text="8"/>
+            <TextBlock Text="9"/>
+            <TextBlock Text="10"/>
+        </ComboBox>
+        <Label Content="Attempts:" HorizontalAlignment="Left" Margin="52,157,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="AlphaCB" HorizontalAlignment="Left" Margin="118,202,0,0" VerticalAlignment="Top" Width="65" SelectedIndex="1">
+            <TextBlock Text="0.10"/>
+            <TextBlock Text="0.05"/>
+            <TextBlock Text="0.01"/>
+            <TextBlock Text="0.001"/>
+        </ComboBox>
+        <Label Content="Alpha:" HorizontalAlignment="Left" Height="30" Margin="61,202,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.608,0.453"/>
     </Grid>
 </Window>

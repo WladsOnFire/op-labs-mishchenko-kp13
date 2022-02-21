@@ -17,4 +17,3 @@ C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Prac01\Prac01\obj\Debug\Check.g.cs
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Prac01\Prac01\obj\Debug\Learn.g.cs
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Prac01\Prac01\obj\Debug\Check.baml
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Prac01\Prac01\obj\Debug\Learn.baml
-C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\Prac01\Prac01\obj\Debug\Prac01.csproj.SuggestedBindingRedirects.cache
