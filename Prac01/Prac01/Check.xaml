@@ -28,5 +28,17 @@
             <TextBlock Text="0.001"/>
         </ComboBox>
         <Label Content="Alpha:" HorizontalAlignment="Left" Height="30" Margin="61,202,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="0.608,0.453"/>
+        <Label Content="P ідентифікації:" HorizontalAlignment="Left" Margin="228,160,0,0" VerticalAlignment="Top"/>
+        <Label Name="PLb" Content="" HorizontalAlignment="Left" Margin="342,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="P1:" HorizontalAlignment="Left" Margin="228,191,0,0" VerticalAlignment="Top"/>
+        <Label Content="P2:" HorizontalAlignment="Left" Margin="228,222,0,0" VerticalAlignment="Top"/>
+        <Label Name="P1Lb" Content="" HorizontalAlignment="Left" Margin="270,191,0,0" VerticalAlignment="Top"/>
+        <Label Name="P2Lb" Content="" HorizontalAlignment="Left" Margin="270,222,0,0" VerticalAlignment="Top"/>
+        <Label Content="You are:" HorizontalAlignment="Left" Margin="30,237,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="User" HorizontalAlignment="Left" Margin="92,240,0,0" VerticalAlignment="Top" Width="117" SelectedIndex="0">
+            <TextBlock Text="developer"/>
+            <TextBlock Text="user"/>
+        </ComboBox>
+        <Label Name="Disp" Content="" HorizontalAlignment="Left" Margin="228,261,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
