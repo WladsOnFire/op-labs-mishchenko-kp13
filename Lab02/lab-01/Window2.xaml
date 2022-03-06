@@ -1,0 +1,220 @@
+﻿<Window x:Class="lab_01.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_01"
+        mc:Ignorable="d"
+        Title="Tic-Tac-Toe" Height="480" Width="640" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FFAFFF99" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Margin="0,0,-0.4,0.4">
+        <Button Content="Back" HorizontalAlignment="Right" Height="50" Margin="0,310,35,0" VerticalAlignment="Top" Width="200" Click="Button_Click" />
+        <Rectangle Name="r1" HorizontalAlignment="Left" Height="44" Margin="43,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r1_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r2" HorizontalAlignment="Left" Height="44" Margin="93,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r2_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r3" HorizontalAlignment="Left" Height="44" Margin="143,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r3_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r4" HorizontalAlignment="Left" Height="44" Margin="43,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r4_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r5" HorizontalAlignment="Left" Height="44" Margin="93,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r5_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r6" HorizontalAlignment="Left" Height="44" Margin="143,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r6_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r7" HorizontalAlignment="Left" Height="44" Margin="43,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r7_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r8" HorizontalAlignment="Left" Height="44" Margin="93,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r8_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r9" HorizontalAlignment="Left" Height="44" Margin="143,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r9_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Name="r10" HorizontalAlignment="Left" Height="44" Margin="193,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r10_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Name="L1" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Arial Unicode MS" FontSize="48"/>
+        <Rectangle Name="r11" HorizontalAlignment="Left" Height="44" Margin="193,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r11_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r12" HorizontalAlignment="Left" Height="44" Margin="193,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r12_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r13" HorizontalAlignment="Left" Height="44" Margin="43,205,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r13_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r14" HorizontalAlignment="Left" Height="44" Margin="93,205,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r14_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r15" HorizontalAlignment="Left" Height="44" Margin="143,205,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r15_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r16" HorizontalAlignment="Left" Height="44" Margin="193,205,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r16_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r17" HorizontalAlignment="Left" Height="44" Margin="43,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r17_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r18" HorizontalAlignment="Left" Height="44" Margin="93,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r18_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r19" HorizontalAlignment="Left" Height="44" Margin="143,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r19_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r20" HorizontalAlignment="Left" Height="44" Margin="193,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r20_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r21" HorizontalAlignment="Left" Height="44" Margin="242,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r21_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r22" HorizontalAlignment="Left" Height="44" Margin="242,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r22_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r23" HorizontalAlignment="Left" Height="44" Margin="242,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r23_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r24" HorizontalAlignment="Left" Height="44" Margin="242,205,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r24_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle Name="r25" HorizontalAlignment="Left" Height="44" Margin="242,254,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" MouseLeftButtonDown="r25_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF22B331"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>
