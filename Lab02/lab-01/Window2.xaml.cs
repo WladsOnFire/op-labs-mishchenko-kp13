@@ -22,7 +22,112 @@ namespace lab_01
         public Window2()
         {
             InitializeComponent();
+            InitializeControls();
         }
+
+        Label ResultLb = new Label();
+        private void InitializeControls()
+        {
+            this.ResizeMode = ResizeMode.CanMinimize;
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.Title = "Tic-Tac-Toe";
+
+            LinearGradientBrush myLinearGradientBrush = new LinearGradientBrush();
+            myLinearGradientBrush.StartPoint = new Point(0.5, 0);
+            myLinearGradientBrush.EndPoint = new Point(0.5, 1);
+            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.LimeGreen, 1));
+            myLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.GhostWhite, 0));
+            this.Background = myLinearGradientBrush;
+
+            Button BackBtn = new Button();
+            BackBtn.Content = "Back";
+            BackBtn.Height = 50;
+            BackBtn.Width = 150;
+            BackBtn.Click += Exit;
+
+
+
+            ResultLb.Content = "";
+            ResultLb.FontSize = 26;
+            int M = 7, N = 5;
+            Grid MyGrid = new Grid();
+            MyGrid.HorizontalAlignment = HorizontalAlignment.Center;
+            MyGrid.VerticalAlignment = VerticalAlignment.Center;
+            //MyGrid.ShowGridLines = true;
+            MyGrid.Margin = new Thickness(15, 15, 15, 15);
+
+            RowDefinition[] rows = new RowDefinition[M];
+            ColumnDefinition[] cols = new ColumnDefinition[N];
+            Rectangle[,] ArrBtn = new Rectangle[N,N];
+
+
+            LinearGradientBrush RectangleLinearGradientBrush = new LinearGradientBrush();
+            RectangleLinearGradientBrush.StartPoint = new Point(0.5, 0);
+            RectangleLinearGradientBrush.EndPoint = new Point(0.5, 1);
+            RectangleLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.LimeGreen, 1));
+            RectangleLinearGradientBrush.GradientStops.Add(new GradientStop(Colors.GhostWhite, 0));
+
+
+            for (int i = 0; i < N; i++)
+                for (int j = 0; j < N; j++)
+                {
+                    ArrBtn[i, j] = new Rectangle();
+                    ArrBtn[i, j].MouseLeftButtonDown += GameButton_Click;
+                    ArrBtn[i, j].Height = 50;
+                    ArrBtn[i, j].Width = 50;
+                    ArrBtn[i, j].Stroke = Brushes.Black;
+                    ArrBtn[i, j].Fill = RectangleLinearGradientBrush;
+                    ArrBtn[i, j].Name = "r" + i + "" + j; 
+                }
+
+            for (int i = 0; i < M; i++)
+            {
+                rows[i] = new RowDefinition();
+                MyGrid.RowDefinitions.Add(rows[i]);
+            }
+            for (int i = 0; i < N; i++)
+            {
+                cols[i] = new ColumnDefinition();
+                MyGrid.ColumnDefinitions.Add(cols[i]);
+            }
+
+            Grid.SetRow(ResultLb, 0);
+            Grid.SetColumn(ResultLb, 0);
+            Grid.SetColumnSpan(ResultLb, 5);
+            MyGrid.Children.Add(ResultLb);
+
+            for (int i = 1; i <= N; i++)
+                for (int j = 0; j < N; j++)
+                {
+                    Grid.SetRow(ArrBtn[i-1, j], i);
+                    Grid.SetColumn(ArrBtn[i-1, j], j);
+                    MyGrid.Children.Add(ArrBtn[i-1, j]);
+                }
+
+            Grid.SetRow(BackBtn, 6);
+            Grid.SetColumn(BackBtn, 2);
+            Grid.SetColumnSpan(BackBtn, 3);
+            MyGrid.Children.Add(BackBtn);
+
+            this.Content = MyGrid;
+        }
+
+
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Visibility = Visibility.Visible;
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 5; j++)
+                    net[i, j] = 0;
+
+            zero = false;
+            isEndOfTheGame = false;
+            Close();
+        }
+
+
         static int[,] net = { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
         static bool zero = false;
 
@@ -73,7 +178,7 @@ namespace lab_01
 
                 if (nulls == 0)
                 {
-                    L1.Content = "DRAW!";
+                    ResultLb.Content = "DRAW!";
                     isEndOfTheGame = true;
                 }
             }
@@ -87,205 +192,43 @@ namespace lab_01
                 }
                 if (val == 1) 
                 {
-                    L1.Content = "'Cross' player won!";
+                    ResultLb.Content = "'Cross' player won!";
                     isEndOfTheGame = true;
                 }
                 if (val == 2)
                 {
-                    L1.Content = "'Circle' player won!";
+                    ResultLb.Content = "'Circle' player won!";
                     isEndOfTheGame = true;
                 }
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw = new MainWindow();
-            mw.Visibility = Visibility.Visible;
-            for (int i = 0; i < 5; i++)
-                for (int j = 0; j < 5; j++)
-                    net[i, j] = 0;
-            
-            zero = false;
-            isEndOfTheGame = false;
-            Close();
-        }
 
 
-        private void r1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        
+
+        private void GameButton_Click(object sender, MouseButtonEventArgs e)
         {
-            if (net[0,0] == 0 && !isEndOfTheGame)
+            Rectangle GameButton = (Rectangle)sender;
+            int I; int J;
+            I = int.Parse("" + GameButton.Name[1]);
+            J = int.Parse("" + GameButton.Name[2]);
+            if (net[I, J] == 0 && !isEndOfTheGame)
             {
                 if (zero == false)
                 {
-                    net[0, 0] = 1;
+                    net[I, J] = 1;
                     zero = true;
-                    r1.Fill = new ImageBrush
+                    GameButton.Fill = new ImageBrush
                     {
                         ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
                     };
                 }
                 else
                 {
-                    net[0, 0] = 2;
+                    net[I, J] = 2;
                     zero = false;
-                    r1.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-            
-        }
-
-        private void r2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[0, 1] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[0, 1] = 1;
-                    zero = true;
-                    r2.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[0, 1] = 2;
-                    zero = false;
-                    r2.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-        }
-
-        private void r3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[0, 2] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[0, 2] = 1;
-                    zero = true;
-                    r3.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[0, 2] = 2;
-                    zero = false;
-                    r3.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-        }
-
-        private void r4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[1, 0] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[1, 0] = 1;
-                    zero = true;
-                    r4.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[1, 0] = 2;
-                    zero = false;
-                    r4.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-        }
-
-        private void r5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[1, 1] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[1, 1] = 1;
-                    zero = true;
-                    r5.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[1, 1] = 2;
-                    zero = false;
-                    r5.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-        }
-
-        private void r6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[1, 2] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[1, 2] = 1;
-                    zero = true;
-                    r6.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[1, 2] = 2;
-                    zero = false;
-                    r6.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-                checkWhoWon(net);
-            }
-        }
-
-        private void r7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[2, 0] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 0] = 1;
-                    zero = true;
-                    r7.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[2, 0] = 2;
-                    zero = false;
-                    r7.Fill = new ImageBrush
+                    GameButton.Fill = new ImageBrush
                     {
                         ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
                     };
@@ -294,472 +237,5 @@ namespace lab_01
             checkWhoWon(net);
         }
 
-        private void r8_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[2, 1] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 1] = 1;
-                    zero = true;
-                    r8.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[2, 1] = 2;
-                    zero = false;
-                    r8.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r9_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[2, 2] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 2] = 1;
-                    zero = true;
-                    r9.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[2, 2] = 2;
-                    zero = false;
-                    r9.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[0, 3] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[0, 3] = 1;
-                    zero = true;
-                    r10.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[0, 3] = 2;
-                    zero = false;
-                    r10.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r11_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[1, 3] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[1, 3] = 1;
-                    zero = true;
-                    r11.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[1, 3] = 2;
-                    zero = false;
-                    r11.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r12_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[2, 3] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 3] = 1;
-                    zero = true;
-                    r12.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[2, 3] = 2;
-                    zero = false;
-                    r12.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r13_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[3, 0] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[3, 0] = 1;
-                    zero = true;
-                    r13.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[3, 0] = 2;
-                    zero = false;
-                    r13.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r14_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[3, 1] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[3, 1] = 1;
-                    zero = true;
-                    r14.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[3, 1] = 2;
-                    zero = false;
-                    r14.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r15_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[3, 2] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[3, 2] = 1;
-                    zero = true;
-                    r15.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[3, 2] = 2;
-                    zero = false;
-                    r15.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r16_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[3, 3] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[3, 3] = 1;
-                    zero = true;
-                    r16.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[3, 3] = 2;
-                    zero = false;
-                    r16.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r17_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[4, 0] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[4, 0] = 1;
-                    zero = true;
-                    r17.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[4, 0] = 2;
-                    zero = false;
-                    r17.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r18_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[4, 1] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[4, 1] = 1;
-                    zero = true;
-                    r18.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[4, 1] = 2;
-                    zero = false;
-                    r18.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r19_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[4, 2] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[4, 2] = 1;
-                    zero = true;
-                    r19.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[4, 2] = 2;
-                    zero = false;
-                    r19.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r20_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[4, 3] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 2] = 1;
-                    zero = true;
-                    r20.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[4, 3] = 2;
-                    zero = false;
-                    r20.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r21_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[0, 4] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[0, 4] = 1;
-                    zero = true;
-                    r21.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[0, 4] = 2;
-                    zero = false;
-                    r21.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r22_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[1, 4] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[1, 4] = 1;
-                    zero = true;
-                    r22.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[1, 4] = 2;
-                    zero = false;
-                    r22.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r23_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[2, 4] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[2, 4] = 1;
-                    zero = true;
-                    r23.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[2, 4] = 2;
-                    zero = false;
-                    r23.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r24_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[3, 4] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[3, 4] = 1;
-                    zero = true;
-                    r24.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[3, 4] = 2;
-                    zero = false;
-                    r24.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
-
-        private void r25_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (net[4, 4] == 0 && !isEndOfTheGame)
-            {
-                if (zero == false)
-                {
-                    net[4, 4] = 1;
-                    zero = true;
-                    r25.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("x.png", UriKind.Relative))
-                    };
-                }
-                else
-                {
-                    net[4, 4] = 2;
-                    zero = false;
-                    r25.Fill = new ImageBrush
-                    {
-                        ImageSource = new BitmapImage(new Uri("z.png", UriKind.Relative))
-                    };
-                }
-            }
-            checkWhoWon(net);
-        }
     }
 }
