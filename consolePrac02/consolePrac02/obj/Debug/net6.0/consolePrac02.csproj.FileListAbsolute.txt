@@ -17,7 +17,6 @@ C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\De
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\Debug\net6.0\consolePrac02.deps.json
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\Debug\net6.0\consolePrac02.runtimeconfig.json
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\Debug\net6.0\consolePrac02.dll
-C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\Debug\net6.0\ref\consolePrac02.dll
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\bin\Debug\net6.0\consolePrac02.pdb
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\consolePrac02.csproj.AssemblyReference.cache
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\consolePrac02.GeneratedMSBuildEditorConfig.editorconfig
@@ -28,3 +27,4 @@ C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\De
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\ref\consolePrac02.dll
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\consolePrac02.pdb
 C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\consolePrac02.genruntimeconfig.cache
+C:\Users\Vlad\Desktop\op-labs-mishchenko-kp13\consolePrac02\consolePrac02\obj\Debug\net6.0\refint\consolePrac02.dll
