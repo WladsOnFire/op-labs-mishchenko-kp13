@@ -1,0 +1,32 @@
+﻿<Window x:Class="Prac02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prac02"
+        mc:Ignorable="d"
+        Title="Prac02" Height="550" Width="800" ResizeMode="CanMinimize">
+    <Grid Name="WindowGrid">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF2DE28D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Name="LaunchBt" Content="Launch" HorizontalAlignment="Left" Height="48" Margin="33,346,0,0" VerticalAlignment="Top" Width="160" Click="Button_Click"/>
+        <Label Content="Iteration:" HorizontalAlignment="Left" Margin="77,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cities ammount:" HorizontalAlignment="Left" Margin="39,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Population size:" HorizontalAlignment="Left" Margin="42,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mutation chance:" HorizontalAlignment="Left" Margin="33,256,0,0" VerticalAlignment="Top"/>
+        <Label Content="Iterations ammount:" HorizontalAlignment="Left" Margin="17,287,0,0" VerticalAlignment="Top"/>
+        <Label Name="iter" Content="n" HorizontalAlignment="Left" Margin="139,155,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="citiesT" HorizontalAlignment="Left" Margin="147,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="10"/>
+        <TextBox Name="populationsT" HorizontalAlignment="Left" Margin="147,234,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="mutationT" HorizontalAlignment="Left" Margin="147,264,0,0" TextWrapping="Wrap" Text="0,3" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="iterationsT" HorizontalAlignment="Left" Margin="147,291,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Distance:" HorizontalAlignment="Left" Margin="77,173,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="dist" Content="n" HorizontalAlignment="Left" Margin="139,173,0,0" VerticalAlignment="Top"/>
+        <Button Name ="BreakBt"  Content="Break" HorizontalAlignment="Left" Margin="33,421,0,0" VerticalAlignment="Top" Height="51" Width="160" IsEnabled="False" Click="BreakBt_Click"/>
+
+    </Grid>
+</Window>
