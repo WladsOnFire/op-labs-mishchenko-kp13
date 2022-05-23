@@ -1,0 +1,44 @@
+﻿<Window x:Class="Lab04.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab04"
+        mc:Ignorable="d"
+        Title="Add Conference" Height="450" Width="900" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBox Name="ConNameTb" HorizontalAlignment="Left" Margin="129,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="ConLangTb" HorizontalAlignment="Left" Margin="129,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged"/>
+        <TextBox x:Name="ConDateTb" HorizontalAlignment="Left" Margin="129,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged"/>
+        <TextBox x:Name="ConPlaceTb" HorizontalAlignment="Left" Margin="129,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged"/>
+        <TextBox x:Name="ConThemeTb" HorizontalAlignment="Left" Margin="129,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged"/>
+        <TextBox x:Name="ConFeeTb" HorizontalAlignment="Left" Margin="129,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="ConNameTb_TextChanged"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="26,85,0,0" VerticalAlignment="Top"/>
+        <Label Content="Language" HorizontalAlignment="Left" Margin="26,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="26,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Place" HorizontalAlignment="Left" Margin="26,190,0,0" VerticalAlignment="Top"/>
+        <Label Content="Theme" HorizontalAlignment="Left" Margin="26,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="ArrangementFee" HorizontalAlignment="Left" Margin="26,266,0,0" VerticalAlignment="Top"/>
+        <Label Content="Conference" HorizontalAlignment="Left" Margin="75,39,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="OrgCompanyTb" HorizontalAlignment="Left" Margin="365,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="OrgSurnameTb" HorizontalAlignment="Left" Margin="365,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="OrgFirstNameTb" HorizontalAlignment="Left" Margin="365,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="OrgSecondNameTb" HorizontalAlignment="Left" Margin="365,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="OrgEmailTb" HorizontalAlignment="Left" Margin="333,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="177" TextChanged="ConNameTb_TextChanged" />
+        <TextBox x:Name="OrgNumberTb" HorizontalAlignment="Left" Margin="365,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" TextChanged="ConNameTb_TextChanged" />
+        <Label Content="Organizer" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Company" HorizontalAlignment="Left" Margin="271,85,0,0" VerticalAlignment="Top"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Margin="271,120,0,0" VerticalAlignment="Top"/>
+        <Label Content="FirstName" HorizontalAlignment="Left" Margin="271,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="SecondName" HorizontalAlignment="Left" Margin="271,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="271,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone number" HorizontalAlignment="Left" Margin="271,266,0,0" VerticalAlignment="Top"/>
+        <Label Content="Is fee paid" HorizontalAlignment="Left" Margin="271,295,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="Checkbox" Content="" HorizontalAlignment="Left" Margin="390,300,0,0" VerticalAlignment="Top" IsChecked="False"/>
+        <Button Name="AddBt" Content="Add" HorizontalAlignment="Left" Margin="93,355,0,0" VerticalAlignment="Top" Width="192" Height="32" IsEnabled="False" Click="AddBt_Click"/>
+        <DataGrid Name="OrganizersDG" Margin="527,55,10,10" IsReadOnly="True" SelectionChanged="OrganizersDG_SelectionChanged"/>
+        <Label Content="Select existing organizer" HorizontalAlignment="Left" Margin="564,17,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Name="AddOrgBt" Content="Cancel selection" HorizontalAlignment="Left" Margin="385,334,0,0" VerticalAlignment="Top" Height="32" Width="125" IsEnabled="False" Click="AddOrgBt_Click"/>
+
+    </Grid>
+</Window>
