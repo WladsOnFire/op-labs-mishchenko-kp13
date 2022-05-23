@@ -1,0 +1,49 @@
+use DbConferenceManager;
+
+create table Organizers (
+OrganizerId int identity(1,1)
+constraint OrganizerIdPrimary primary key,
+OrganizerCompany varchar(25),
+OrganizerSurname varchar(15) not null,
+OrganizerFirstName varchar(15) not null,
+OrganizerSecondName varchar(15),
+OrganizerEmail varchar(30) not null,
+OrganizerPhoneNumber varchar(13),
+OrganizerPaidFee bit not null
+);
+
+create table Visitors (
+VisitorId int identity(1,1)
+constraint VisitorIdPrimary primary key,
+VisitorSurname varchar(20) not null,
+VisitorFirstName varchar(20) not null,
+VisitorSecondName varchar(20),
+VisitorEmail varchar(30) not null,
+VisitorPhoneNumber varchar(15),
+VisitorCountry varchar(15)
+);
+
+create table Conferences(
+ConferenceId int identity(1,1)
+constraint ConferenceIdPrimary primary key,
+ConferenceName varchar(50) unique not null,
+ConferenceLanguage varchar(15) not null,
+ConferenceDate date not null,
+ConferencePlace varchar(50) not null,
+ConferenceOrganizerId int not null,
+constraint ConferenceOrganizerIdForeign foreign key (ConferenceOrganizerId) references Organizers (OrganizerId) on delete cascade on update cascade,
+ConferenceTheme varchar(50) not null,
+ConferenceArrangementFee smallmoney
+);
+
+create table ConferencesVisit(
+VisitorId int not null,
+ConferenceId int not null,
+Feedback varchar(50),
+constraint VisitorIdForeign foreign key (VisitorId) references Visitors (VisitorId),
+constraint ConferenceIdForeign foreign key (ConferenceId) references Conferences (ConferenceId)
+);
+
+
+
+
