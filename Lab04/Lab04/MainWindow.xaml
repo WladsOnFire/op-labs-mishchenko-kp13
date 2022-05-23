@@ -1,0 +1,18 @@
+﻿<Window x:Class="Lab04.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab04"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800" ResizeMode="CanMinimize">
+    <Grid Name="myGrid">
+        <DataGrid Margin="10,10,431,10" Name="ConferencesDG" SelectionChanged="ConferencesDG_SelectionChanged" IsReadOnly="True"/>
+        <DataGrid Margin="374,188,10,206" x:Name="VisitorsDG" IsReadOnly="True" SelectionChanged="VisitorsDG_SelectionChanged"/>
+        <TextBlock Name="FeedbackTB" Text="Feedback" HorizontalAlignment="Left" Margin="374,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="168" FontSize="16" Background="#FFE4E4E4"/>
+        <Label Name ="selectedVisitorL" Content="" HorizontalAlignment="Center" Margin="0,148,0,0" VerticalAlignment="Top"/>
+        <Label Name ="selectedConferenceL" Content="" HorizontalAlignment="Left" Margin="538,148,0,0" VerticalAlignment="Top"/>
+        
+
+    </Grid>
+</Window>
