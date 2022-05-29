@@ -1,0 +1,23 @@
+﻿<Window x:Class="Prac03.AdminModeWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prac03"
+        mc:Ignorable="d"
+        Title="Log in as admin" Height="600" Width="400" ResizeMode="CanMinimize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" BorderBrush="#FF474545" Closed="Window_Closed">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBox Name="LoginTB" HorizontalAlignment="Center" Margin="0,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Height="50" FontSize="20" TextChanged="Tb_TextChanged"/>
+        <TextBox Name="PasswordTB"  HorizontalAlignment="Center" Margin="0,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Height="50" FontSize="20" TextChanged="Tb_TextChanged"/>
+        <Button Name="LogInBtn" Content="Log in" HorizontalAlignment="Center" Margin="0,348,0,0" VerticalAlignment="Top" Height="35" Width="200" IsEnabled="False" Click="LogInBtn_Click"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="50,78,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="50,195,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+    </Grid>
+</Window>
